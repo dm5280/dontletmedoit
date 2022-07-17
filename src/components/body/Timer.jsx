@@ -14,7 +14,7 @@ const Timer = ( { unixTime } ) => {
     console.log(ddate)
 
     const startTimer = () => {
-        const countDownDate = new Date('July 17, 2022 12:00:00');
+        const countDownDate = new Date('July 21, 2022 12:00:00');
 
         interval = setInterval( () => {
             //const now = new Date(timeNow);
