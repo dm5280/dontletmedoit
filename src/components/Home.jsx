@@ -14,7 +14,7 @@ import Timer from './body/Timer'
 import WalletBalance from './WalletBalance';
 
 import girl from './images/girl.png';
-import os from './images/os.png';
+import dis from './images/dis.png';
 import tw from './images/twitter.png';
 
 function Home() {
@@ -81,8 +81,8 @@ function Home() {
                     )
                 }
                 <div className="flex justify-center my-10">
-                    <a href="#" className='mr-10 hover:brightness-75 w-[100px]'><img src={os} alt="OpenSea" /></a>
-                    <a href="#" className='hover:brightness-75 w-[100px]'><img src={tw} alt="Twitter" /></a>
+                    <a href="https://discord.gg/qEywRj8Aa2" className='mr-10 hover:brightness-75 w-[100px]'><img src={dis} alt="Discord" /></a>
+                    <a href="https://twitter.com/dontletmedoit_" className='hover:brightness-75 w-[100px]'><img src={tw} alt="Twitter" /></a>
                 </div>
                 <p className='font-mont my-10 text-md md:text-sm sm:text-xs'>
                     We use the ERC-721A standard for our <a href='#' className='underline hover:no-underline'>smart contract</a><br />
