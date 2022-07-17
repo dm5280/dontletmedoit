@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { ethers } from 'ethers';
-import FiredGuys from '../artifacts/contracts/MyNFT.sol/FiredGuys.json';
+
+import { useWeb3React } from "@web3-react/core"
+import { injected } from "../components/wallet/connectors"
 
 const contractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
 
@@ -17,16 +18,29 @@ import os from './images/os.png';
 import tw from './images/twitter.png';
 
 function Home() {
-    const [adress, setAdress] = useState();
+    const { active, account, library, connector, activate, deactivate } = useWeb3React()
+    const [isCountdown, setStartCountdown] = useState(true);
     let time = 0;
-    
-    const connectToWallet = async () => {
-        const provider = new ethers.providers.Web3Provider(window.ethereum)
-        const accounts = await provider.send("eth_requestAccounts", [])
-        setAdress(accounts[0])
-    }
 
     //const mint
+
+    async function connect() {
+        try {
+            await activate(injected)
+            localStorage.setItem('isWalletConnected', true)
+        } catch (ex) {
+        console.log(ex)
+        }
+    }
+
+    async function disconnect() {
+        try {
+            deactivate()
+            localStorage.setItem('isWalletConnected', false)
+        } catch (ex) {
+            console.log(ex)
+        }
+    }
 
     const [unixTime, setUnixTime] = React.useState();
 
@@ -38,6 +52,18 @@ function Home() {
 
     React.useEffect(() => {
         getTime();
+
+        const connectWalletOnPageLoad = async () => {
+            if (localStorage?.getItem('isWalletConnected') === 'true') {
+              try {
+                await activate(injected)
+                localStorage.setItem('isWalletConnected', true)
+              } catch (ex) {
+                console.log(ex)
+              }
+            }
+          }
+          connectWalletOnPageLoad()
     }, []);
     
     return (
@@ -45,24 +71,24 @@ function Home() {
         <div className=''>
             <img src={girl} width={320} className='pic__girl xl:block hidden' alt="" />
             <div className='m-auto text-center max-w-[700px]'>
-                {window.ethereum
-                    ? (
-                    adress
+                {isCountdown
+                    ?  <Timer unixTime={unixTime} />
+                    : (
+                    active
                         ? <Mint />
-                        // : <Connect connectToWallet={connectToWallet} />
+                        : <Connect connectToWallet={connect} />
                         // : <Sold />
-                        : <Timer unixTime={unixTime} />
                     )
-                    : <Install />
                 }
                 <div className="flex justify-center my-10">
                     <a href="#" className='mr-10 hover:brightness-75 w-[100px]'><img src={os} alt="OpenSea" /></a>
                     <a href="#" className='hover:brightness-75 w-[100px]'><img src={tw} alt="Twitter" /></a>
                 </div>
                 <p className='font-mont my-10 text-md md:text-sm sm:text-xs'>
-                    We use the ERC-721A standard for our smart contract<br />
+                    We use the ERC-721A standard for our <a href='#' className='underline hover:no-underline'>smart contract</a><br />
                     to make your gas fee as funny as our project too<br /><br />
-                    <span className='text-xs sm:text-md'>{adress && <>Your wallet: {adress}</>}</span>
+                    {active && <span className='text-xs sm:text-md'>Your wallet: {account} <br />
+                    <a onClick={disconnect} className='underline hover:no-underline cursor-pointer'>Disconnect</a></span>}
                 </p>
             </div>
         </div>
