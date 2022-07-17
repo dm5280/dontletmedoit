@@ -1,0 +1,44 @@
+/* Custom page styles */
+
+.header__row {
+    display: flex;
+    align-items: flex-end;
+}
+
+.pic__girl {
+    position: fixed;
+    left: 3%;
+    bottom: 0;
+}
+
+.pic__twitter {
+    position: absolute;
+    right: 3%;
+    top: 37%;
+}
+
+.btn__connect {
+    border: none;
+    background: url('../images/btn.png') no-repeat top center;
+    padding: 15px 40px;
+}
+
+.btn__mint {
+    border: none;
+    background: url('../images/btn_mint.png') no-repeat top center;
+    padding: 15px 81px;
+}
+
+@media screen and (max-device-width:640px), screen and (max-width:640px) {
+    .btn__connect {
+        border: none;
+        background: url('../images/btn_m.png') no-repeat top center;
+        padding: 13px 44px;
+    }
+    
+    .btn__mint {
+        border: none;
+        background: url('../images/btn_mint_m.png') no-repeat top center;
+        padding: 16px 84px;
+    }
+}
