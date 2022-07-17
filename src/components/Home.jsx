@@ -19,7 +19,7 @@ import tw from './images/twitter.png';
 
 function Home() {
     const { active, account, library, connector, activate, deactivate } = useWeb3React()
-    const [isCountdown, setStartCountdown] = useState(false);
+    const [isCountdown, setStartCountdown] = useState(true);
     let time = 0;
 
     //const mint
