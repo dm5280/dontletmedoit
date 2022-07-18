@@ -38,6 +38,10 @@ contract dontletmedoit is ERC721A, Ownable, ReentrancyGuard {
 
     event Minted(address minter, uint256 quantity);
 
+    function burn(uint256 token) public {
+        _burn(token);
+    }
+
     function whitelistAddress(address user) public onlyOwner {
         allowedUsers[user] = true;
     }
