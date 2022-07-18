@@ -1,18 +1,10 @@
 import React from 'react';
 import { Helmet } from "react-helmet";
-import { Web3ReactProvider } from '@web3-react/core';
-import { Web3Provider } from '@ethersproject/providers'
 
 import Header from './components/Header';
 import Home from './components/Home';
 
 import './components/styles/global.css';
-
-function getLibrary(provider) {
-  const library = new Web3Provider(provider)
-  library.pollingInterval = 12000
-  return library
-}
 
 function App() {
   return (

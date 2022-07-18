@@ -17,7 +17,7 @@ import dis from './images/dis.png';
 import tw from './images/twitter.png';
 
 function Home() {
-    const { active, account, connector, activate, deactivate } = useWeb3React();
+    // const { active, account, connector, activate, deactivate } = useWeb3React();
     const contractAddress = '0x3ba2cab27c660999cd6f06e9f2cf5a1518ad3cc4';
     const [isCountdown, setStartCountdown] = useState(true);
     let time = 0;
@@ -26,41 +26,41 @@ function Home() {
     // const contract = new Contract(contractAddress, abi, provider)
 
     async function connect() {
-        try {
-            await activate(injected)
-            localStorage.setItem('isWalletConnected', true)
-        } catch (ex) {
-            console.log(ex)
-        }
+        // try {
+        //     await activate(injected)
+        //     localStorage.setItem('isWalletConnected', true)
+        // } catch (ex) {
+        //     console.log(ex)
+        // }
     }
 
     async function disconnect() {
-        try {
-            deactivate()
-            localStorage.setItem('isWalletConnected', false)
-        } catch (ex) {
-            console.log(ex)
-        }
+        // try {
+        //     deactivate()
+        //     localStorage.setItem('isWalletConnected', false)
+        // } catch (ex) {
+        //     console.log(ex)
+        // }
     }
 
     async function mint(quantity) {
         console.log(quantity)
-        try {
-            const tx = await contract.mint(1);
-            await tx.wait();
-        } catch (error) {
-            console.log(error);
-        }
+        // try {
+        //     const tx = await contract.mint(1);
+        //     await tx.wait();
+        // } catch (error) {
+        //     console.log(error);
+        // }
     }
 
-    async function test() {
-        try {
-            const tx = await contract.isActive()
-            console.log(tx);
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    // async function test() {
+    //     try {
+    //         const tx = await contract.isActive()
+    //         console.log(tx);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
     const [unixTime, setUnixTime] = React.useState();
 
@@ -73,17 +73,17 @@ function Home() {
     React.useEffect(() => {
         getTime();
 
-        const connectWalletOnPageLoad = async () => {
-            if (localStorage?.getItem('isWalletConnected') === 'true') {
-              try {
-                await activate(injected)
-                localStorage.setItem('isWalletConnected', true)
-              } catch (ex) {
-                console.log(ex)
-              }
-            }
-          }
-          connectWalletOnPageLoad()
+        // const connectWalletOnPageLoad = async () => {
+        //     if (localStorage?.getItem('isWalletConnected') === 'true') {
+        //       try {
+        //         await activate(injected)
+        //         localStorage.setItem('isWalletConnected', true)
+        //       } catch (ex) {
+        //         console.log(ex)
+        //       }
+        //     }
+        //   }
+        //   connectWalletOnPageLoad()
     }, []);
     
     return (
@@ -94,7 +94,7 @@ function Home() {
                 {isCountdown
                     ?  <Timer unixTime={unixTime} />
                     : (
-                    active
+                    1
                         ? <Mint mint={mint} />
                         : <Connect connectToWallet={connect} />
                         // : <Sold />
@@ -107,7 +107,7 @@ function Home() {
                 <p className='font-mont my-10 text-md md:text-sm sm:text-xs'>
                     We use the ERC-721A standard for our <a href='#' className='underline hover:no-underline'>smart contract</a><br />
                     to make your gas fee as funny as our project too<br /><br />
-                    {active && <span className='text-xs sm:text-md'>Your wallet: {account} <br />
+                    {!1 && <span className='text-xs sm:text-md'>Your wallet: <br />
                     <a onClick={disconnect} className='underline hover:no-underline cursor-pointer'>Disconnect</a></span>}
                 </p>
             </div>
