@@ -17,7 +17,7 @@ import dis from './images/dis.png';
 import tw from './images/twitter.png';
 
 function Home() {
-    const { active, account, library, connector, activate, deactivate } = useWeb3React();
+    const { active, account, connector, activate, deactivate } = useWeb3React();
     const contractAddress = '0x3ba2cab27c660999cd6f06e9f2cf5a1518ad3cc4';
     const [isCountdown, setStartCountdown] = useState(true);
     let time = 0;
