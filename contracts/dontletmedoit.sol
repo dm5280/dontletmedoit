@@ -3,10 +3,7 @@ pragma solidity ^0.8.4;
 import "./ERC721A/ERC721A.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
-<<<<<<< HEAD
 import "@openzeppelin/contracts/utils/Strings.sol";
-=======
->>>>>>> 014a9676e742854de8a9be29144537dfa9dbc70e
 
 contract dontletmedoit is ERC721A, Ownable, ReentrancyGuard {
     using Strings for uint256;
