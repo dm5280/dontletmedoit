@@ -4,6 +4,7 @@ import { ethers } from 'ethers';
 import { useWeb3React } from "@web3-react/core"
 import { injected } from "../components/wallet/connectors"
 import abi from "../components/wallet/dontletmedoit.json"
+import { Contract } from "@ethersproject/contracts";
 
 import Install from './body/Install';
 import Connect from './body/Connect';
@@ -18,18 +19,18 @@ import tw from './images/twitter.png';
 function Home() {
     const { active, account, library, connector, activate, deactivate } = useWeb3React();
     const contractAddress = '0x3ba2cab27c660999cd6f06e9f2cf5a1518ad3cc4';
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const signer = provider.getSigner();
-    const contract = new ethers.Contract(contractAddress, abi, signer)
     const [isCountdown, setStartCountdown] = useState(true);
     let time = 0;
+    // const provider = library.getSigner()
+
+    // const contract = new Contract(contractAddress, abi, provider)
 
     async function connect() {
         try {
             await activate(injected)
             localStorage.setItem('isWalletConnected', true)
         } catch (ex) {
-        console.log(ex)
+            console.log(ex)
         }
     }
 

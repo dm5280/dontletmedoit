@@ -16,7 +16,7 @@ function getLibrary(provider) {
 
 function App() {
   return (
-    <Web3ReactProvider getLibrary={getLibrary}>
+    <>
       <Helmet
         htmlAttributes={{ lang : 'en' }}
       >
@@ -37,7 +37,7 @@ function App() {
       </Helmet>
       <Header/>
       <Home/>
-    </Web3ReactProvider>
+    </>
   )
 }
 
