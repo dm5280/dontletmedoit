@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
+import { ethers } from 'ethers';
 import { useWeb3React } from "@web3-react/core"
 import { injected } from "../components/wallet/connectors"
-
-const contractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
+import abi from "../components/wallet/dontletmedoit.json"
 
 import Install from './body/Install';
 import Connect from './body/Connect';
@@ -11,18 +11,18 @@ import Mint from './body/Mint';
 import Sold from './body/Sold';
 import Timer from './body/Timer'
 
-import WalletBalance from './WalletBalance';
-
 import girl from './images/girl.png';
 import dis from './images/dis.png';
 import tw from './images/twitter.png';
 
 function Home() {
-    const { active, account, library, connector, activate, deactivate } = useWeb3React()
-    const [isCountdown, setStartCountdown] = useState(true);
+    const { active, account, library, connector, activate, deactivate } = useWeb3React();
+    const contractAddress = '0x3ba2cab27c660999cd6f06e9f2cf5a1518ad3cc4';
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(contractAddress, abi, signer)
+    const [isCountdown, setStartCountdown] = useState(false);
     let time = 0;
-
-    //const mint
 
     async function connect() {
         try {
@@ -39,6 +39,25 @@ function Home() {
             localStorage.setItem('isWalletConnected', false)
         } catch (ex) {
             console.log(ex)
+        }
+    }
+
+    async function mint(quantity) {
+        console.log(quantity)
+        try {
+            const tx = await contract.mint(1);
+            await tx.wait();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async function test() {
+        try {
+            const tx = await contract.isActive()
+            console.log(tx);
+        } catch (error) {
+            console.log(error);
         }
     }
 
@@ -75,7 +94,7 @@ function Home() {
                     ?  <Timer unixTime={unixTime} />
                     : (
                     active
-                        ? <Mint />
+                        ? <Mint mint={mint} />
                         : <Connect connectToWallet={connect} />
                         // : <Sold />
                     )

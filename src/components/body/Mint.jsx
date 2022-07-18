@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import minus from '../images/-.png';
 import plus from '../images/+.png';
 
-const Mint = () => {
+const Mint = ( { mint } ) => {
     let [count, setCount] = useState(1);
 
     function incrementCount() {
@@ -29,7 +29,7 @@ const Mint = () => {
                 {count}
                 <img src={plus} onClick={incrementCount} className="pic__calc ml-5 w-[35px] hover:brightness-75" alt="plus" />
             </div>
-            <button className='btn__mint font-segoe font-bold text-[25px] sm:text-[42px] hover:brightness-75 mb-3'>Mint</button>
+            <button onClick={() => mint(count)} className='btn__mint font-segoe font-bold text-[25px] sm:text-[42px] hover:brightness-75 mb-3'>Mint</button>
             <p className='font-segoe font-bold mb-5 text-[25px] sm:text-[42px]'>
                 Do it for me or I...
             </p>

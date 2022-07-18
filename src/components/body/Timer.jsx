@@ -11,7 +11,7 @@ const Timer = ( { unixTime } ) => {
     let timeNow = unixTime * 1000;
 
     const ddate = new Date(1657997339825);
-    console.log(ddate)
+    // console.log(ddate)
 
     const startTimer = () => {
         const countDownDate = new Date('July 21, 2022 12:00:00');
