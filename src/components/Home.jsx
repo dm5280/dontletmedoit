@@ -13,7 +13,7 @@ import price_bg from './images/price_bg.png'
 
 function Home() {
     const [accounts, setAccounts] = useState();
-    const [isCountdown, setStartCountdown] = useState(false);
+    const [isCountdown, setStartCountdown] = useState(true);
 
     async function connect() {
         const accounts = await window.ethereum.request({
@@ -43,6 +43,18 @@ function Home() {
                 <div className="box__price">
                     <img src={price_bg} />
                     <p className='box__text font-mont'>1 FREE NFT if you mint 2 or more only for <a href="https://opensea.io/collection/cloudy-nowhere-friends" className='underline hover:no-underline'>Cloudy Nowhere Friends</a> holders</p>
+                    <p className='box__text font-mont'>
+                    1 NFT  0.0045 ETH<br />
+                    1 NFT  0.0045 ETH<br />
+                    1 NFT  0.0045 ETH<br />
+                    1 NFT  0.0045 ETH<br />
+                    1 NFT  0.0045 ETH<br />
+                    1 NFT  0.0045 ETH<br />
+                    1 NFT  0.0045 ETH<br />
+                    1 NFT  0.0045 ETH<br />
+                    1 NFT  0.0045 ETH<br />
+                    1 NFT  0.0045 ETH<br />
+                    </p>
                 </div>
                 <p className='font-mont my-10 text-md md:text-sm sm:text-xs'>
                     We use the ERC-721A standard for our <a href='https://etherscan.io/token/0xe82c0828ff43e58ec10009b379aeb6296ae9d104' className='underline hover:no-underline'>smart contract</a><br />
