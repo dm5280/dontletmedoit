@@ -3,8 +3,8 @@ import { ethers } from 'ethers';
 
 import dontletmedoit from "../wallet/dontletmedoit.json"
 
-import minus from '../images/-.png';
-import plus from '../images/+.png';
+import minus from '../images/minus.png';
+import plus from '../images/plus.png';
 import loading from '../images/loading.gif';
 
 const Mint = () => {
@@ -120,18 +120,6 @@ const Mint = () => {
             <p className='font-segoe font-bold mb-5 text-[25px] sm:text-[42px]'>
                 Do it for me or I...
             </p>
-            {/* <p className='font-segoe font-bold mb-5 text-xl'>
-                1 NFT - 0.0045 ETH<br />
-                2 NFT - 0.008 ETH<br />
-                3 NFT - 0.012 ETH<br />
-                4 NFT - 0.016 ETH<br />
-                5 NFT - 0.02 ETH<br />
-                6 NFT - 0.0228 ETH<br />
-                7 NFT - 0.0266 ETH<br />
-                8 NFT - 0.0304 ETH<br />
-                9 NFT - 0.0315 ETH<br />
-                10 NFT - 0.035 ETH
-            </p> */}
         </>
     );
   };
