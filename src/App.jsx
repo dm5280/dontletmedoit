@@ -6,6 +6,19 @@ import Home from './components/Home';
 
 import './components/styles/global.css';
 
+const injectGA = () => {
+  if (typeof window == 'undefined') {
+    return;
+  }
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'G-15487RWJJC');
+};
+
 function App() {
   return (
     <>
@@ -26,6 +39,12 @@ function App() {
           <meta name="twitter:description" content="description" />
           <meta name="twitter:url" content="https://" />
           <meta name="twitter:card" content="description" />
+          
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-15487RWJJC"
+          />
+          <script>{injectGA()}</script>
       </Helmet>
       <Header/> 
       <Home/>
