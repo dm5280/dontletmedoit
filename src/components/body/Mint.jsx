@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { ethers } from 'ethers';
 
-import dontletmedoit from "../../artifacts/contracts/dontletmedoit.sol/dontletmedoit.json"
+import dontletmedoit from "../wallet/dontletmedoit.json"
 
 import minus from '../images/-.png';
 import plus from '../images/+.png';
-import loading from '../images/loading.gif'
+// import loading from '../images/loading.gif'
 
 const Mint = () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -109,7 +109,7 @@ const Mint = () => {
 
     return (
         <>
-            {isLoading && <img src={loading} className='max-w-[15%] m-auto mb-5' />}
+            {/* {isLoading && <img src={loading} className='max-w-[15%] m-auto mb-5' />} */}
             {isMinted && <p className="font-mont mb-5 text-center text-[10px] sm:text-[20px] p-2">NFT Minted! Check it out <a href={`https://etherscan.io/tx/${txHash}`} className='underline hover:no-underline'>on Etherscan</a></p>}
             <button onClick={() => mint(count)} className='btn__mint font-segoe font-bold text-[25px] sm:text-[42px] hover:brightness-75 mb-3'>Mint</button>
             <div className="flex items-center justify-center font-segoe max-w-100 text-4xl font-bold my-5">
