@@ -45,15 +45,15 @@ function Home() {
                     <p className='box__text font-mont'>1 FREE NFT if you mint 2 or more only for <a href="https://opensea.io/collection/cloudy-nowhere-friends" className='underline hover:no-underline'>Cloudy Nowhere Friends</a> holders</p>
                     <p className='box__text-left font-mont'>
                     1 NFT  0.0045 ETH<br />
-                    1 NFT  0.0045 ETH<br />
-                    1 NFT  0.0045 ETH<br />
-                    1 NFT  0.0045 ETH<br />
-                    1 NFT  0.0045 ETH<br />
-                    1 NFT  0.0045 ETH<br />
-                    1 NFT  0.0045 ETH<br />
-                    1 NFT  0.0045 ETH<br />
-                    1 NFT  0.0045 ETH<br />
-                    1 NFT  0.0045 ETH<br />
+                    2 NFT  0.0080 ETH<br />
+                    3 NFT  0.0120 ETH<br />
+                    4 NFT  0.0160 ETH<br />
+                    5 NFT  0.0200 ETH<br />
+                    6 NFT  0.0228 ETH<br />
+                    7 NFT  0.0266 ETH<br />
+                    8 NFT  0.0304 ETH<br />
+                    9 NFT  0.0315 ETH<br />
+                    10 NFT  0.0350 ETH<br />
                     </p>
                 </div>
                 <p className='font-mont my-10 text-md md:text-sm sm:text-xs'>
