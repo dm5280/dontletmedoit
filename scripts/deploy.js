@@ -15,7 +15,7 @@ async function main() {
 
   // We get the contract to deploy
 
-  const FirdeGuys = await ethers.getContractFactory("Gentemplate");
+  const FirdeGuys = await ethers.getContractFactory("dontletmedoit");
   const firedguys = await FirdeGuys.deploy();
   await firedguys.deployed();
 

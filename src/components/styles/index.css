@@ -29,6 +29,25 @@
     padding: 15px 81px;
 }
 
+.box__price {
+    position: relative;
+    text-align: center;
+}
+
+.box__price img {
+    max-width: 60%;
+    margin: auto;
+}
+
+.box__text {
+    position: absolute;
+    top: 17%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 20px;
+}
+
 @media screen and (max-device-width:640px), screen and (max-width:640px) {
     .btn__connect {
         border: none;

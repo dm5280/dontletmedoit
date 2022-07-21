@@ -25,11 +25,11 @@ contract dontletmedoit is ERC721A, Ownable, ReentrancyGuard {
         0x8cA1c650a1FEca30C261a6DaE1472DC30Ed6791B,
         0xE2f440a687E7eFB5865FbcabBC281Cd13053f6A5
     ];
-    address NFT = 0xd8b934580fcE35a11B58C6D73aDeE468a2833fa8;
+    address NFT = 0x4c30f80431Ec5D8086b61a8472ECd827727Ad1e6;
 
     string private _baseTokenURI = "ipfs://";
 
-    bool public isActive = false;
+    bool public isActive = true;
 
     mapping(address => uint256) public totalMint;
 
@@ -127,29 +127,7 @@ contract dontletmedoit is ERC721A, Ownable, ReentrancyGuard {
     }
 
     function mint(uint256 _quantity) external payable nonReentrant {
-        require(isActive, "Not active");
         require(_quantity > 0, "No 0 mint");
-        require(
-            (totalMint[msg.sender] + _quantity) <= Max_per_Wallet,
-            "More then 10"
-        );
-        if (_quantity >= 2 && _quantity <= 5) {
-            require(msg.value >= (_quantity * step1), "No Eth");
-        }
-        if (_quantity >= 6 && _quantity <= 8) {
-            require(msg.value >= (_quantity * step1), "No Eth");
-        }
-
-        if (_quantity > 9) {
-            require(msg.value >= (_quantity * step3), "No Eth");
-        } else {
-            require(msg.value >= price, "No Eth");
-        }
-
-        if (checkCloudy(msg.sender)) {
-            _quantity = _quantity + 1;
-        }
-
         require((totalSupply() + _quantity) <= Max_Supply, "Max supply");
 
         totalMint[msg.sender] += _quantity;

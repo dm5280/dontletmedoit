@@ -1,18 +1,26 @@
 const { expect } = require("chai");
+const { BigNumber } = require("ethers");
 const { ethers } = require("hardhat");
 
 describe("NFT", function () {
   it("Should mint and transfer NFT to someone", async function () {
-    const FirdeGuys = await ethers.getContractFactory("FiredGuys");
+    const FirdeGuys = await ethers.getContractFactory("dontletmedoit");
     const firedguys = await FirdeGuys.deploy();
     await firedguys.deployed();
 
-    const recipient = '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266';
-    const metadataURI = 'cid/test.png';
+    const count = 1;
 
-    let balance = await firedguys.balanceOf(recipient)
-    expect(balance).to.equal(0);
+    const recipient = '0x35C4a714273B333beb7F3Ac8C1E6a3280A9Ab8f9';
 
-    const newToken = await firedguys.payToMint(recipient, metadataURI, { value: ethers.utils.parseEther('0.05') });
+    const activate = await firedguys.setActive(true);
+
+    let tx = await firedguys.mint(count, {
+      value: ethers.utils.parseEther("0.0046"),
+      gasPrice: ethers.utils.parseUnits("100", "gwei"),
+      gasLimit: "99000"
+    })
+    await tx.wait()
+
+    done()
   });
 });

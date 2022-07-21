@@ -27,7 +27,7 @@ function App() {
           <meta name="twitter:url" content="https://" />
           <meta name="twitter:card" content="description" />
       </Helmet>
-      <Header/>
+      <Header/> 
       <Home/>
     </>
   )
