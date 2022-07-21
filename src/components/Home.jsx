@@ -8,6 +8,7 @@ import Timer from './body/Timer'
 
 import girl from './images/girl0.png';
 import dis from './images/dis.png';
+import os from './images/os.png';
 import tw from './images/twitter.png';
 import price_bg from './images/price_bg.png'
 
@@ -36,6 +37,7 @@ function Home() {
                     )
                 }
                 <div className="flex justify-center my-10">
+                    <a href="https://opensea.io/collection/dont-let-me-do-it" className='mr-10 hover:brightness-75 w-[100px]'><img src={os} alt="Opensea" /></a>
                     <a href="https://discord.gg/qEywRj8Aa2" className='mr-10 hover:brightness-75 w-[100px]'><img src={dis} alt="Discord" /></a>
                     <a href="https://twitter.com/dontletmedoit_" className='hover:brightness-75 w-[100px]'><img src={tw} alt="Twitter" /></a>
                 </div>
