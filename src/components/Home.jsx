@@ -43,7 +43,7 @@ function Home() {
                 <div className="box__price">
                     <img src={price_bg} />
                     <p className='box__text font-mont'>1 FREE NFT if you mint 2 or more only for <a href="https://opensea.io/collection/cloudy-nowhere-friends" className='underline hover:no-underline'>Cloudy Nowhere Friends</a> holders</p>
-                    <p className='box__text font-mont'>
+                    <p className='box__text-left font-mont'>
                     1 NFT  0.0045 ETH<br />
                     1 NFT  0.0045 ETH<br />
                     1 NFT  0.0045 ETH<br />
