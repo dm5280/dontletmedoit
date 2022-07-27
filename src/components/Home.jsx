@@ -14,7 +14,7 @@ import price_bg from './images/price_bg.png'
 
 function Home() {
     const [accounts, setAccounts] = useState();
-    const [isCountdown, setStartCountdown] = useState(true);
+    const [isCountdown, setStartCountdown] = useState(false);
 
     async function connect() {
         const accounts = await window.ethereum.request({

@@ -11,7 +11,7 @@ const Mint = () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 
     let [count, setCount] = useState(1);
-    let [value, setValue] = useState(0.0045);
+    let [value, setValue] = useState(0.0005);
     let [isLoading, setIsLoading] = useState(false);
     let [isMinted, setIsMinted] = useState(false);
     let [txHash, setTxHash] = useState();
@@ -24,7 +24,7 @@ const Mint = () => {
 
     // Get contract ABI and address
     const abi = dontletmedoit.abi
-    const contractAddress = '0xe82c0828Ff43e58ec10009b379aEb6296aE9d104'
+    const contractAddress = '0x4F5023130CF4efF04B4e5EaCb4A2439Db951F2F3'
     // Create a contract instance
     const contract = new ethers.Contract(contractAddress, abi, signer)
 
@@ -75,34 +75,34 @@ const Mint = () => {
     function checkValue(count) {
         switch (count) {
             case 1:
-                setValue(0.0045);
+                setValue(0.0005);
                 break;
             case 2:
-                setValue(0.008);
+                setValue(0.001);
                 break;
             case 3:
-                setValue(0.012);
+                setValue(0.0015);
                 break;
             case 4:
-                setValue(0.016);
+                setValue(0.002);
                 break;
             case 5:
-                setValue(0.02);
+                setValue(0.0025);
                 break;
             case 6:
-                setValue(0.0228);
+                setValue(0.003);
                 break;
             case 7:
-                setValue(0.0266);
+                setValue(0.0035);
                 break;
             case 8:
-                setValue(0.0304);
+                setValue(0.004);
                 break;
             case 9:
-                setValue(0.0315);
+                setValue(0.0045);
                 break;
             case 10:
-                setValue(0.035);
+                setValue(0.005);
                 break;
         }
     }
