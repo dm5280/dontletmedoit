@@ -9,7 +9,7 @@ const Timer = () => {
     let interval;
 
     const startTimer = () => {
-        const countDownDate = new Date('July 21, 2022 9:00:00 UTC');
+        const countDownDate = new Date('December 25, 2022 9:00:00 UTC');
 
         interval = setInterval( () => {
             const now = new Date().getTime();
