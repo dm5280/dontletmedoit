@@ -29,7 +29,7 @@ function Home() {
             <img src={girl} width={320} className='pic__girl xl:block hidden' alt="" />
             <div className='m-auto text-center max-w-[700px]'>
                 {isCountdown
-                    ?  <Timer/>
+                    ?  <Sold />
                     : (
                     accounts
                         ? <Mint />
